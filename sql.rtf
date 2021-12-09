@@ -1,0 +1,39 @@
+-- Database: ingresso-api
+
+-- DROP DATABASE IF EXISTS "ingresso-api";
+
+CREATE DATABASE "ingresso-api"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'en_US.UTF-8'
+    LC_CTYPE = 'en_US.UTF-8'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+CREATE TABLE aluno (
+	aluno_id serial PRIMARY KEY,
+	nome VARCHAR ( 50 ) NOT NULL,
+	curso VARCHAR ( 50 ) NOT NULL,
+	email VARCHAR ( 255 ) UNIQUE NOT NULL
+);
+
+CREATE TABLE aula (
+	aula_id serial PRIMARY KEY,
+	tema VARCHAR ( 50 ) NOT NULL,
+	data_hora TIMESTAMP NOT NULL,
+	"local" VARCHAR ( 100 ) NOT NULL
+);
+
+CREATE TABLE aluno_aula (
+	aluno_aula_id serial PRIMARY KEY,
+	aluno_id int,
+	aula_id int,
+	experiencia BOOLEAN NOT NULL,
+	CONSTRAINT fk_aluno
+      FOREIGN KEY(aluno_id) 
+	  REFERENCES aluno(aluno_id),
+	CONSTRAINT fk_aula
+      FOREIGN KEY(aula_id) 
+	  REFERENCES aula(aula_id)
+);

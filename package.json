@@ -1,0 +1,35 @@
+{
+  "name": "ingresso-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node -r dotenv/config index.ts",
+    "dev": "ts-node-dev --exit-child --respawn -r dotenv/config index.ts",
+    "test": "set NODE_ENV=test && jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1 --setupFiles dotenv/config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+"
+  },
+  "author": "Bianca Magalhães",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "@types/node": "^16.11.12",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "pg-promise": "^10.10.2",
+    "ts-node": "^10.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
